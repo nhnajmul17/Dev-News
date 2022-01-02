@@ -1,31 +1,36 @@
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import About from './Components/About/About';
+import JavascriptNews from './Components/AllNews/JavascriptNews/JavascriptNews';
+import PhpNews from './Components/AllNews/PhpNews/PhpNews';
 import PythonNews from './Components/AllNews/PythonNews/PythonNews';
+import Contact from './Components/Contact/Contact';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
+import Signup from './Components/Login/Signup';
+import Error from './Components/Shared/Error/Error';
+import Header from './Components/Shared/Header/Header';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <div>
-          <h1>Welcome to News</h1>
-
-          <ul>
-            <Link to='/home'> <li>Home</li> </Link>
-            <Link to='/pythonnews'>  <li>Python News</li> </Link>
-            <Link to='/login'><li>Login</li> </Link>
-          </ul>
-        </div>
+        <Header></Header>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='home' element={<Home />} />
+          <Route path='about' element={<About />} />
+          <Route path='contact' element={<Contact />} />
           <Route path='pythonnews' element={<PythonNews />} />
+          <Route path='javanews' element={<JavascriptNews />} />
+          <Route path='phpnews' element={<PhpNews />} />
           <Route path='login' element={<Login />} />
+          <Route path='signup' element={<Signup />} />
+          <Route path='*' element={<Error />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter >
 
-    </div>
+    </div >
   );
 }
 
