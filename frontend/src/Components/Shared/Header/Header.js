@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar, } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
@@ -14,12 +14,7 @@ const Header = () => {
                         </Nav>
                         <Nav>
                             <Nav.Link as={Link} to='/home'>Home</Nav.Link>
-                            <NavDropdown title="News" id="collasible-nav-dropdown">
-                                <NavDropdown.Item as={Link} to='/pythonnews'>Python</NavDropdown.Item>
-                                <NavDropdown.Item as={Link} to='/javanews'>JavaScript</NavDropdown.Item>
-                                {/* <NavDropdown.Divider /> */}
-                                <NavDropdown.Item as={Link} to='/phpnews'>Php</NavDropdown.Item>
-                            </NavDropdown>
+                            <Nav.Link as={Link} to='/allnews'>News</Nav.Link>
                             <Nav.Link as={Link} to='/about'>About</Nav.Link>
                             <Nav.Link as={Link} to='/contact'>Contact</Nav.Link>
                             <Link to='login'><Button className='me-3'>Login</Button></Link>
