@@ -1,0 +1,26 @@
+.publishing-caption{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image:url('https://www.councilshs2information.org/wp-content/uploads/2021/09/IT-Support-Provider.jpg') ;
+}
+
+.publishing-caption h3{
+    font-weight: 500;
+   font-size: 70px;
+   }
+   .publishing-caption p{
+    
+   font-size: 18px;
+   top: 2rem;
+   padding-bottom: 1rem;
+   }
+   
+   @media (max-width: 768px) {
+   
+      
+       .publishing-caption h3{
+           font-weight: 500;
+          font-size: 40px;
+          }
+   }
