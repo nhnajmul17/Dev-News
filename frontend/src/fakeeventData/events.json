@@ -1,0 +1,56 @@
+[
+    {
+        "key": "pye1",
+        "category": "python",
+        "title": "PyCon DE & PyData",
+        "date": "24 Feb 2022",
+        "location": "onsite in Cardiff, UK",
+        "img": "https://i.ibb.co/0r16wT2/py-event1.jpg",
+        "about": "Two years ago, two major Python conferences teamed up: PyCon DE and PyData. This year, the cooperation will continue.Last year the event was cancelled.There’s still not that much information about the program of this year’s edition, but it’s planned as an in-person event.In 2019, the conference offered over 100 sessions dedicated to PyData topics such as artificial intelligence, machine learning, and ethics, as well as Python topics like programming, DevOps, or Django. I’m sure we can expect a program just as rich this year."
+    },
+    {
+        "key": "pye2",
+        "category": "python",
+        "title": " PyCon UK",
+        "date": "10 March 2022",
+        "location": "onsite in Berlin, Germany",
+        "img": "https://i.ibb.co/RcXqtCR/py-event2.jpg",
+        "about": "Apart from the typical convention panels, PyCon UK 2020 hosted a few additional activities that they proudly announced at the top of their website.In cooperation with Django Girls, the organizers threw a one-day free Python course for beginners. Raspberry Pi Foundation and CoderDojo curated a Children’s Day initiative to teach the basics of coding to the youngest attendees.And in the evening, the participants could try their luck in board games and… manual crafts. Knitting a scarf at a Python conference? Only in the UK"
+    },
+    {
+        "key": "jse1",
+        "category": "javascript",
+        "title": " JSCAMP Barcelona",
+        "date": "15 July 2022",
+        "location": "Bercelona, Spain",
+        "img": "https://i.ibb.co/qCfn77c/js-event1.jpg",
+        "about": "Due to the COVID-19 pandemic, many events and conferences have been postponed. One of them is JSCAMP BARCELONA - an international two-day conference focused on JavaScript. In 2022 sunny Barcelona will be again a meeting place of over 1200 developers from across the world wanting to get knowledge from world-class JavaScript experts. It will be another awesome conference where people will not only listen to lectures but also exchange ideas, meet, chat, and make new friends. "
+    },
+    {
+        "key": "jse2",
+        "category": "javascript",
+        "title": "International JavaScript Conference",
+        "date": "26 March 2022",
+        "location": "Munich Or Online",
+        "img": "https://i.ibb.co/Np6fy23/js-event2.jpg",
+        "about": "JavaScript Conference allows taking your JS skills to the next level. It will be held this year in a hybrid version, which means that it will be possible to participate both online and on-site. The conference is entirely devoted to JavaScript and related technologies such as Angular, React, Vue.js, NativeScript, Electron, or Node.js. The participation of this 5-days event will allow you to know the cutting-edge technologies and the latest trends in JS."
+    },
+    {
+        "key": "phpe1",
+        "category": "php",
+        "title": "International Php Conference",
+        "date": "10 April 2022",
+        "location": "Dutch, Netherlands",
+        "img": "https://i.ibb.co/1J91qRN/php-event1.jpg",
+        "about": "The Online PHP Conference ist eine Konferenz über professionelle Softwareentwicklung, Open Source und den PHP-Technologie-Stack.Wir legen den Begriff dieses Mal wörtlich aus: bei dieser Ausgabe von The Online PHP Conference gibt es keine vorbereiteten Vorträge und auch kein Präsentationsmaterial. Stattdessen widmen wir eine Woche lang jeweils einen Vormittag einem Thema, das wir gemeinsam mit eingeladenen Expertinnen und Experten in einem interaktiven Fachgespräch diskutieren."
+    },
+    {
+        "key": "phpe2",
+        "category": "php",
+        "title": "Php UK Conference",
+        "date": "16-18 February 2022",
+        "location": "City of London",
+        "img": "https://i.ibb.co/sQTNYqV/php-event2.jpg",
+        "about": "Our aim is for PHP UK to offer attendees a forum for learning and networking with the most up-to-date topics in PHP development and related tools, tailored specifically to the needs of developers and CTOs. We are pleased to bring the 16th annual PHP UK conference to the tech community - a 3 day conference packed with amazing talks, plentiful networking opportunities and great social events. We hope to see you there!"
+    }
+]

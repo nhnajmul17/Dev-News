@@ -11,6 +11,8 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
+                        </Nav>
+                        <Nav>
                             <Nav.Link as={Link} to='/home'>Home</Nav.Link>
                             <NavDropdown title="News" id="collasible-nav-dropdown">
                                 <NavDropdown.Item as={Link} to='/pythonnews'>Python</NavDropdown.Item>
@@ -20,9 +22,6 @@ const Header = () => {
                             </NavDropdown>
                             <Nav.Link as={Link} to='/about'>About</Nav.Link>
                             <Nav.Link as={Link} to='/contact'>Contact</Nav.Link>
-
-                        </Nav>
-                        <Nav>
                             <Link to='login'><Button className='me-3'>Login</Button></Link>
                             <Link to='signup'><Button>SignUp</Button></Link>
 
