@@ -9,9 +9,9 @@ const Home = () => {
         <div>
             
             <TopNews />
+            <EventSlider></EventSlider>
             <Brands />
             <Footer/>
-            <EventSlider></EventSlider>
         </div>
     );
 };
