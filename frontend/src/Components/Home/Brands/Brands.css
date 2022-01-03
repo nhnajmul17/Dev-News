@@ -1,0 +1,34 @@
+.brands__section{
+    margin: 80px 6%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 30px;
+    place-items: center;
+    justify-content: center;
+}
+.brand{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.brand img{
+    width: 70%;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    transition: all 0.4s;
+}
+.brand img:hover{
+    -webkit-filter: grayscale(0); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0);
+}
+
+@media only screen and (max-width: 900px) {
+    .brands__section{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media only screen and (max-width: 500px) {
+    .brands__section{
+        grid-template-columns: 1fr;
+    }
+}
