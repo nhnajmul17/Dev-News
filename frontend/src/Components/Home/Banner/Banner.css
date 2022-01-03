@@ -1,0 +1,51 @@
+/* <div className="slider-btn">
+          <button className='btn btn1'>Get a quote</button>
+      </div> */
+
+
+
+      .carousel-item{
+        height: 70vh;
+        min-height: 300px;
+        background: no-repeat scroll center scroll;
+        background-size: cover;
+    } 
+    
+    .carousel-item::before{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;left: 0;
+        bottom: 0;right: 0;
+        background-color: #333;
+        opacity: 0.7;
+    }
+    
+    .carousel-caption{
+        bottom: 15rem !important;
+       
+        
+    }
+    .carousel-caption h3{
+     font-weight: 500;
+    font-size: 70px;
+    }
+    .carousel-caption p{
+     
+    font-size: 18px;
+    top: 2rem;
+    padding-bottom: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+    
+        .carousel-caption{
+            bottom: 5rem !important;
+           
+            
+        }
+        .carousel-caption h3{
+            font-weight: 500;
+           font-size: 40px;
+           }
+    }

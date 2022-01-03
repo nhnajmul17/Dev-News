@@ -1,10 +1,15 @@
 import React from 'react';
+import Publishing from '../../Publishing/Publishing';
+import Banner from './Banner/Banner';
+
+
 
 const Home = () => {
     return (
-        <div>
-            <h3>This is Home Page</h3>
-        </div>
+   <>
+   <Banner></Banner>
+   <Publishing></Publishing>
+   </>
     );
 };
 
