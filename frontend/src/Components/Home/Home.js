@@ -1,9 +1,11 @@
 import React from 'react';
+import TopNews from './TopNews/TopNews';
 
 const Home = () => {
     return (
         <div>
-            <h3>This is Home Page</h3>
+            
+            <TopNews/>
         </div>
     );
 };

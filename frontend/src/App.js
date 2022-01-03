@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
 import About from './Components/About/About';
 import JavascriptNews from './Components/AllNews/JavascriptNews/JavascriptNews';
 import PhpNews from './Components/AllNews/PhpNews/PhpNews';
