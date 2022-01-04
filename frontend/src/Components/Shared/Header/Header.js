@@ -18,7 +18,7 @@ const Header = () => {
                             <Nav.Link as={Link} to='/about'>About</Nav.Link>
                             <Nav.Link as={Link} to='/contact'>Contact</Nav.Link>
                             <Link to='login'><Button className='me-3'>Login</Button></Link>
-                            <Link to='signup'><Button>SignUp</Button></Link>
+                            {/* <Link to='signup'><Button>SignUp</Button></Link> */}
 
                         </Nav>
                     </Navbar.Collapse>
