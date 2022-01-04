@@ -3,10 +3,18 @@ const jwt = require("jsonwebtoken");
 
 const createNews = async (req, res) => {
 	const token = req.headers["x-access-token"];
-	const decoded = jwt.verify(token, "secret");
 
 	try {
-		const news = await News.find({});
+		const decoded = jwt.verify(token, "secret");
+		const news = await News.create({
+			headLine: req.body.headLine,
+			author: req.body.author,
+			photoUrl: req.body.photoUrl,
+			category: req.body.category,
+			publishedDate: req.body.publishedDate,
+			description: req.body.description,
+			is_published: decoded.admin ? true : false,
+		});
 		res.json({ status: "success", data: news });
 	} catch (error) {
 		console.log(error);
