@@ -3,6 +3,13 @@ import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+	const handleLogout = () => {
+		const token = localStorage.getItem("token");
+		if (token) {
+			localStorage.removeItem("token");
+		}
+	};
+
 	return (
 		<div>
 			<Navbar
@@ -34,6 +41,9 @@ const Header = () => {
 							</Nav.Link>
 							<Nav.Link as={Link} to="/dashboard">
 								Dashboard
+							</Nav.Link>
+							<Nav.Link as={Link} to="/" onClick={handleLogout}>
+								Logout
 							</Nav.Link>
 							<Link to="/login">
 								<Button className="me-3">Login</Button>
