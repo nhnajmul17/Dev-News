@@ -17,16 +17,31 @@ export const fetchTopnews = createAsyncThunk(
         return response
     }
 )
+export const fetchAllnews = createAsyncThunk(
+    'news/AllNewsdata',
+    async () => {
+        const response = await fetch('./NewsData.json')
+            .then(res => res.json())
+        return response
+    }
+)
 
 const initialState = {
     events: [],
-    topNews: []
+    topNews: [],
+    allNews: [],
+    allNewsItem: [],
+
 }
 
 export const newsSlice = createSlice({
     name: 'news',
     initialState,
     reducers: {
+        setNews: (state, { payload }) => {
+            state.allNews = payload
+
+        },
 
     },
     extraReducers: (builder) => {
@@ -36,11 +51,15 @@ export const newsSlice = createSlice({
         builder.addCase(fetchTopnews.fulfilled, (state, action) => {
             state.topNews = (action.payload)
         })
+        builder.addCase(fetchAllnews.fulfilled, (state, action) => {
+            state.allNews = (action.payload)
+            state.allNewsItem = (action.payload)
+        })
 
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, } = newsSlice.actions
+export const { setNews } = newsSlice.actions
 
 export default newsSlice.reducer

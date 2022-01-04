@@ -17,38 +17,38 @@ import UserAnalytics from "./Components/Dashbords/UserAnalytics/UserAnalytics";
 import MakeAdmin from "./Components/Dashbords/MakeAdmin/MakeAdmin";
 
 function App() {
-	return (
-		<div className="App">
-			<BrowserRouter>
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="home" element={<Home />} />
-					<Route path="home/:newsId" element={<DetailsNews />} />
-					<Route path="about" element={<About />} />
-					<Route path="contact" element={<Contact />} />
-					<Route path="allnews" element={<Allnews />} />
-					<Route path="login" element={<Login />} />
-					<Route path="signup" element={<Signup />} />
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="home" element={<Home />} />
+          <Route path="home/:newsId" element={<DetailsNews />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="allnews" element={<Allnews />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
 
-					<Route path="dashboard" element={<Dashbords />}>
-						<Route path="manage-news" element={<ManageNewses />} />
-						<Route path="publish-news" element={<PublicNews />} />
-						<Route path="make-admin" element={<MakeAdmin />} />
-						<Route
-							path="panding-news"
-							element={<PendingNewses />}
-						/>
-						<Route
-							path="user-analytics"
-							element={<UserAnalytics />}
-						/>
-					</Route>
+          <Route path="dashboard" element={<Dashbords />}>
+            <Route path="manage-news" element={<ManageNewses />} />
+            <Route path="publish-news" element={<PublicNews />} />
+            <Route path="make-admin" element={<MakeAdmin />} />
+            <Route
+              path="panding-news"
+              element={<PendingNewses />}
+            />
+            <Route
+              path="user-analytics"
+              element={<UserAnalytics />}
+            />
+          </Route>
 
-					<Route path="*" element={<Error />} />
-				</Routes>
-			</BrowserRouter>
-		</div>
-	);
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
