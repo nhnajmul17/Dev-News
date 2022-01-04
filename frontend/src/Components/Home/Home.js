@@ -1,22 +1,26 @@
 import React from 'react';
 import Publishing from '../../Publishing/Publishing';
-import Banner from './Banner/Banner';  
+import Banner from './Banner/Banner';
 import Footer from '../Shared/Footer/Footer';
 import Brands from './Brands/Brands';
 import TopNews from './TopNews/TopNews';
 import EventSlider from './Events/EventSlider/EventSlider';
+import Header from '../Shared/Header/Header';
 
 
 const Home = () => {
     return (
         <div>
-            
-            <TopNews />
-            <Brands />
-            <Footer/>
-            <EventSlider></EventSlider>
+            <Header></Header>
+
             <Banner></Banner>
+            <TopNews />
             <Publishing></Publishing>
+            <EventSlider></EventSlider>
+            <Publishing></Publishing>
+            <Brands />
+            <Footer />
+
         </div>
     );
 };

@@ -9,8 +9,10 @@ const EventCard = ({ event }) => {
         <div className='card-item'>
 
             <div className='card-inner'>
-                <div className="card-top">
-                    <img src={img} alt={title} />
+                <div className='card-image'>
+                    <div className="card-top">
+                        <img src={img} alt={title} />
+                    </div>
                 </div>
                 <div className="card-bottom">
                     <div className="card-info">
