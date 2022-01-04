@@ -1,13 +1,17 @@
 const express = require("express");
 const router = express.Router();
 
-const { getAllNews, getNewsById } = require("../controller/newsConroller.js");
+const {
+	createNews,
+	getAllNews,
+	getNewsById,
+} = require("../controller/newsConroller.js");
 
 // @desc POST news to db
 // @route POST /api/news
 // @access Private
 
-// router.post("/", createNews);
+router.post("/", createNews);
 
 // @desc GET all news from db
 // @route GET /api/news
