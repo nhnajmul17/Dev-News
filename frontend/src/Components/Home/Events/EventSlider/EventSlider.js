@@ -62,7 +62,7 @@ const EventSlider = () => {
         <div>
             {/* <h3 style={{ textAlign: 'center', marginBottom: '40px', }}>Events</h3> */}
             <div>
-                <img src={img} class="img-fluid" alt="..."></img>
+                <img src={img} class="img-fluid w-100" alt="..."></img>
             </div>
             <div className='p-5'>
                 <h3 style={{ textAlign: 'center', marginBottom: '40px', }} className='fw-bold'>Up Coming Events</h3>
