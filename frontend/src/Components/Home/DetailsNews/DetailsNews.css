@@ -1,0 +1,79 @@
+.detail__content{
+    margin: 50px 10%;
+}
+.details__header{
+    margin-bottom: 50px;
+}
+.details__header h1{
+    font-size: 45px;
+    font-weight: bold;
+}
+.details__header p{
+    font-size: 22px;
+}
+.details__header span{
+    font-size: 18px;
+}
+.detail__description{
+    margin: 50px;
+    line-height: 35px;
+}
+.detail__description p{
+    font-size: 22px;
+}
+.details_image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.details_image img{
+    width: 80%;
+    height: 400px;
+}
+
+.comment__section{
+    margin: 50px 10%;
+}
+.comment__form form> textarea{
+    outline: none;
+    width: 70%;
+    min-height: 100px;
+    border: 1px solid rgb(48, 138, 241);
+    padding: 8px;
+    border-radius: 5px;
+}
+.comment__form form> input{
+    border: none;
+    outline: none;
+    padding: 8px 20px;
+    font-size: 18px;
+    margin-top: 20px;
+    border-radius: 4px;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+    background-size: 300% 100%;
+    color: white;
+}
+.comment__form form> input:hover{
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.users__comment{
+    margin: 40px 5%;
+    width: 60%;
+}
+
+@media only screen and (max-width: 500px) {
+    .detail__content{
+        margin: 50px 4%;
+    }
+    .details_image img{
+        width: 100%;
+    }
+}

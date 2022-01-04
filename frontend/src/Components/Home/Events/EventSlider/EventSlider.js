@@ -1,17 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import { Carousel } from 'react-bootstrap';
+import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import EventCard from '../EventCard/EventCard';
 import img from '../../../../Images/eventBanner.JPG';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchevents } from '../../../../Redux/NewsSlice/NewsSlice';
 
 const EventSlider = () => {
-    const [events, setEvents] = useState([])
+    // const [events, setEvents] = useState([])
+    const dispatch = useDispatch()
 
-    useEffect(() => {
+    /* useEffect(() => {
         fetch('./events.json')
             .then(res => res.json())
             .then(data => setEvents(data))
-    }, [])
+    }, []) */
+
+    useEffect(() => {
+        dispatch(fetchevents())
+
+    }, [dispatch])
+
+    const events = useSelector(state => state.news.events)
+
+
 
     var settings = {
         dots: true,
@@ -49,24 +60,12 @@ const EventSlider = () => {
     };
     return (
         <div>
-            <h3>Events</h3>
+            {/* <h3 style={{ textAlign: 'center', marginBottom: '40px', }}>Events</h3> */}
             <div>
-                <Carousel fade hidden-xs variant="dark">
-                    <Carousel.Item>
-                        <Carousel.Caption className="overflow-hidden">
-                            <p className='fw-bold '>City of London</p>
-                            <h1 className='fw-bold fst-italic text-white'>PHP UK CONFERENCE</h1>
-                            <p className='fw-bold '><small>16th February 2022</small></p>
-                        </Carousel.Caption>
-                        <img
-                            className="d-block w-100"
-                            src={img} alt="Event images"
-                        />
-                    </Carousel.Item>
-                </Carousel>
+                <img src={img} class="img-fluid" alt="..."></img>
             </div>
             <div className='p-5'>
-                <h3>Up Coming Events</h3>
+                <h3 style={{ textAlign: 'center', marginBottom: '40px', }} className='fw-bold'>Up Coming Events</h3>
                 <Slider {...settings}>
                     {
                         events.map(event => <EventCard key={event.key} event={event}></EventCard>)
