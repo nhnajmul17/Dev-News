@@ -1,0 +1,22 @@
+.about__section{
+    margin: 50px 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: space-around;
+
+
+}
+.about__image img{
+    width: 100%;
+}
+.About__text{
+    text-align: justify;
+}
+
+@media only screen and (max-width: 500px) {
+    .about__section{
+        grid-template-columns: 1fr;
+        margin: 50px 4%;
+    }
+}

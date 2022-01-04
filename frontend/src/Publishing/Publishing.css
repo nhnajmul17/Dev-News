@@ -3,11 +3,33 @@
     justify-content: center;
     align-items: center;
     background-image:url('https://www.councilshs2information.org/wp-content/uploads/2021/09/IT-Support-Provider.jpg') ;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+     background-attachment: fixed; 
+    text-align: center;
+    padding: 20px 0;
+    height: 70vh;
+    color: white;
+    position: relative;
 }
-
+.publishing-caption::before{
+    content: '';
+    display: block;
+   position: absolute; 
+    top: 0;left: 0;
+    bottom: 0;right: 0;
+    background-color: rgba(51, 51, 51, 0.411);
+  opacity: 0.7;  
+   
+}
+.item{
+    z-index: 99;
+}
 .publishing-caption h3{
     font-weight: 500;
    font-size: 70px;
+   z-index: 999;
    }
    .publishing-caption p{
     
