@@ -6,14 +6,12 @@ import Contact from './Components/Contact/Contact';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Error from './Components/Shared/Error/Error';
-import Header from './Components/Shared/Header/Header';
 import Signup from './Components/SignUp/Signup';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <BrowserRouter>
-        <Header></Header>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='home' element={<Home />} />
