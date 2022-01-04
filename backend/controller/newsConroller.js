@@ -23,8 +23,15 @@ const createNews = async (req, res) => {
 };
 
 const getAllNews = async (req, res) => {
+	const publish = req.query.publish;
+
 	try {
-		const news = await News.find({});
+		let news;
+		if (publish === "false") {
+			news = await News.find({ is_published: false });
+		} else {
+			news = await News.find({ is_published: true });
+		}
 		res.json({ status: "success", data: news });
 	} catch (error) {
 		console.log(error);
