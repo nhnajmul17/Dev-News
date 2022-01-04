@@ -6,6 +6,7 @@ import Brands from './Brands/Brands';
 import TopNews from './TopNews/TopNews';
 import EventSlider from './Events/EventSlider/EventSlider';
 
+
 const Home = () => {
     return (
         <div>

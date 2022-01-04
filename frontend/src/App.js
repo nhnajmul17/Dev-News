@@ -3,6 +3,7 @@ import About from './Components/About/About';
 import Allnews from './Components/AllNews/Allnews';
 
 import Contact from './Components/Contact/Contact';
+import Deshbords from './Components/Deshbords/Deshbords';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Error from './Components/Shared/Error/Error';
@@ -22,6 +23,7 @@ function App() {
           <Route path='allnews' element={<Allnews />} />
           <Route path='login' element={<Login />} />
           <Route path='signup' element={<Signup />} />
+          <Route path='deshbords' element={<Deshbords />} />
           <Route path='*' element={<Error />} />
         </Routes>
       </BrowserRouter >
