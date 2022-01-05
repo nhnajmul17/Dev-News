@@ -12,6 +12,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import "./Dashbords.css";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import HomeIcon from '@mui/icons-material/Home';
 
 const drawerWidth = 240;
 
@@ -30,6 +31,12 @@ const Dashbords = (props) => {
 				<div className="sidebarWrapper">
 					<div className="sidebarMenu">
 						<ul className="sidebarList">
+							<Link to="/" className="link">
+								<li className="sidebarListItem">
+								<HomeIcon color="secondary" />
+									 Go Home
+								</li>
+							</Link>
 							<Link to="/dashboard/manage-news/" className="link">
 								<li className="sidebarListItem">
 									<LineStyleIcon className="sidebarIcon" />
