@@ -49,6 +49,20 @@ const getNewsById = async (req, res) => {
 	}
 };
 
+const updateNewsPublishStatusById = async (req, res) => {
+	const token = req.headers["x-access-token"];
+	try {
+		const decoded = jwt.verify(token, "secret");
+		const news = await News.findByIdAndUpdate(req.params.id, {
+			is_published: true,
+		});
+		res.json({ status: "success", news });
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ status: "error", errors: "Server Error" });
+	}
+};
+
 const getNewsByIdAndDelete = async (req, res) => {
 	const token = req.headers["x-access-token"];
 	try {
@@ -66,4 +80,5 @@ module.exports = {
 	getAllNews,
 	getNewsById,
 	getNewsByIdAndDelete,
+	updateNewsPublishStatusById,
 };
