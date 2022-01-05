@@ -49,8 +49,21 @@ const getNewsById = async (req, res) => {
 	}
 };
 
+const getNewsByIdAndDelete = async (req, res) => {
+	const token = req.headers["x-access-token"];
+	try {
+		const decoded = jwt.verify(token, "secret");
+		await News.findByIdAndDelete(req.params.id);
+		res.json({ status: "success" });
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ status: "error", errors: "Server Error" });
+	}
+};
+
 module.exports = {
 	createNews,
 	getAllNews,
 	getNewsById,
+	getNewsByIdAndDelete,
 };
