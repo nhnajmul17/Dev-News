@@ -69,7 +69,21 @@ const login = async (req, res) => {
 	}
 };
 
+// make admin
+const makeAdmin = async (req, res) => {
+	const token = req.headers["x-access-token"];
+	try {
+		const decoded = jwt.verify(token, "secret");
+		const filter = { email: req.body.email };
+		const result = await User.updateOne(filter, { $set: { admin: true } });
+		return res.json({ status: "success" });
+	} catch (error) {
+		res.status(500).json({ status: "error", errors: "Server Error" });
+	}
+};
+
 module.exports = {
 	createUser,
 	login,
+	makeAdmin,
 };
