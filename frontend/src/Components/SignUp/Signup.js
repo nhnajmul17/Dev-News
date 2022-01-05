@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
-import { Button, TextField } from "@mui/material";
+import { Button, CircularProgress, TextField } from "@mui/material";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./Signup.css";
 import axios from "axios";
 import { REACT_API_URL } from "../../Utils";
+import swal from "sweetalert";
 
 const Signup = () => {
 	const [loading, setLoading] = useState(false);
@@ -20,7 +21,11 @@ const Signup = () => {
 			.then((res) => {
 				console.log(res.data);
 				if (res.data.status === "success") {
-					window.alert("user created");
+					swal({
+						title: "Good job!",
+						text: "Registration successful!",
+						icon: "success",
+					});
 					navigate("/login");
 				}
 				if (res.data.status === "error") {
@@ -79,17 +84,21 @@ const Signup = () => {
 						variant="standard"
 						type="password"
 					/>
-					<Button
-						type="submit"
-						style={{
-							backgroundColor: "#6a2b36",
-							marginTop: "20px",
-							marginLeft: "5px",
-						}}
-						variant="contained"
-					>
-						Register
-					</Button>
+					{loading ? (
+						<CircularProgress />
+					) : (
+						<Button
+							type="submit"
+							style={{
+								backgroundColor: "#6a2b36",
+								marginTop: "20px",
+								marginLeft: "5px",
+							}}
+							variant="contained"
+						>
+							Register
+						</Button>
+					)}
 					<br />
 					<br />
 					<NavLink style={{ textDecoration: "none" }} to="/Login">
