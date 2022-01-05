@@ -1,5 +1,6 @@
 const News = require("../models/News");
 const jwt = require("jsonwebtoken");
+const ObjectId = require("mongodb").ObjectId;
 
 const createNews = async (req, res) => {
 	const token = req.headers["x-access-token"];
@@ -51,12 +52,17 @@ const getNewsById = async (req, res) => {
 
 const updateNewsPublishStatusById = async (req, res) => {
 	const token = req.headers["x-access-token"];
+	console.log(req.params.id);
 	try {
 		const decoded = jwt.verify(token, "secret");
-		const news = await News.findByIdAndUpdate(req.params.id, {
-			is_published: true,
-		});
-		res.json({ status: "success", news });
+		const filter = { _id: ObjectId(req.params.id) };
+		const updateDoc = {
+			$set: {
+				is_published: true,
+			},
+		};
+		const news = await News.updateOne(filter, updateDoc);
+		res.json({ status: "success" });
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({ status: "error", errors: "Server Error" });
