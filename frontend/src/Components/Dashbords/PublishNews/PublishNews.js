@@ -1,12 +1,13 @@
 import React from "react";
 import './PublishNews.css';
 import { useForm } from "react-hook-form";
+import { REACT_API_URL } from "../../../Utils";
 
 const PublishNews = () => {
 
 	const { register, handleSubmit, reset } = useForm();
 	const onSubmit = data => {
-		fetch('https://newsportal-serverapi.herokuapp.com/', {
+		fetch(`${REACT_API_URL}/news`, {
             method: "POST",
 			headers: {
 				"x-access-token": localStorage.getItem("token")
@@ -15,10 +16,13 @@ const PublishNews = () => {
         })
             .then(res => res.json())
             .then(result => {
-                if (result.insertedId) {
+                if (result.status === "success") {
                     alert(' added successfully')
                     reset();
-                }
+				}
+				if (result.status === "error") {
+					alert(result.errors);
+				}
             })
 	};
 
