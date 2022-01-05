@@ -37,6 +37,28 @@ export const deleteNews = createAsyncThunk(
     }
 )
 
+export const NewsApproved = createAsyncThunk(
+    'news/AllNewsdata',
+    async (id) => {
+        const response = await axios
+            .post(`${REACT_API_URL}/news/${id}`, {
+                headers: { "x-access-token": localStorage.getItem("token") },
+            })
+            .then((res) => {
+                if (res.data.status === 'success') {
+                    alert('News Approved')
+                    window.location.reload()
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+        return response
+    }
+)
+
+
+
 const initialState = {
     events: [],
     topNews: [],

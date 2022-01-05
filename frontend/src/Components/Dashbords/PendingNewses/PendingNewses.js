@@ -34,6 +34,12 @@ const PendingNewses = () => {
 				setLoading(false);
 			});
 	}
+
+
+
+	/* const handleApproved = (id) => {
+		dispatch(deleteNews(id))
+	} */
 	return (
 		<div>
 			<h1>All News {news?.length}</h1>
