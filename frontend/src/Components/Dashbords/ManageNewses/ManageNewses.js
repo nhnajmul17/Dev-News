@@ -1,5 +1,6 @@
 import { Box, Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { REACT_API_URL } from "../../../Utils";
 // import { Table } from "react-bootstrap";
 // import { useSelector } from "react-redux";
 // import { useDispatch } from "react-redux";
@@ -11,15 +12,15 @@ const ManageNewses = () => {
 	const [news, setNews] = useState([])
 
 	useEffect(() => {
-		fetch('/NewsData.json')
+		fetch('https://newsportal-serverapi.herokuapp.com/api/news')
 			.then(res => res.json())
 			.then(data => {
-				setNews(data);
+				setNews(data.data);
 			})
 	}, [])
 
 	const handleDelete = (id) => {
-		fetch(`https://localhost5000/deleteNews/${id}`, {
+		fetch(`${REACT_API_URL}/news/${id}`, {
 			method: "DELETE",
 			headers: { "content-type": "application/json" },
 		})
@@ -99,12 +100,12 @@ const ManageNewses = () => {
 									{pd?.headLine}
 								</Typography>
 								<Typography variant="body2" color="text.secondary">
-									Author: {pd?.Author}
+									Author: {pd?.author}
 								</Typography>
 								<Typography variant="body2" color="text.secondary">
-									Published: {pd?.PublishedDate}sq ft
+									Published: {pd?.publishedDate}
 								</Typography>
-								<button onClick={() => handleDelete(pd._id)} className="btn bg-warning m-2 ">  Delete Apartment</button>
+								<button onClick={() => handleDelete(pd._id)} className="btn bg-warning m-2 ">  Delete News</button>
 							</CardContent>
 
 						</Card>  </Grid>)

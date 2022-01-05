@@ -15,7 +15,7 @@ const PendingNewses = () => {
 	}, [])
 
 	const handleUpdate = (id) => {
-		const url = `https://fathomless-everglades-23928.herokuapp.com/bookings/${id}`
+		const url = `${REACT_API_URL}/api/news/${id}`
 		fetch(url, {
 			method: 'PUT',
 			headers: {
@@ -51,9 +51,9 @@ const PendingNewses = () => {
 						<tr>
 							<td>{index + 1}</td>
 							<td>{pd?.headLine}</td>
-							<td>{pd?.Author}</td>
+							<td>{pd?.author}</td>
 							<td>{pd?.category}</td>
-							<td>{pd?.PublishedDate}</td>
+							<td>{pd?.publishedDate}</td>
 							<button
 								onClick={() => handleUpdate(pd._id)}
 								className="btn bg-warning m-2"
