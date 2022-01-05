@@ -1,18 +1,66 @@
 import Grid from '@mui/material/Grid';
 import { Button, TextField } from '@mui/material';
-
+import axios from "axios";
 import { useForm } from "react-hook-form";
 import './MakeAdmin.css'
+import { REACT_API_URL } from '../../../Utils';
+import swal from 'sweetalert';
 
 const MakeAdmin = () => {
 
-	const { register, handleSubmit,reset } = useForm();
-  const onSubmit = data => (
-	  
+	const { register, handleSubmit, } = useForm();
+  const onSubmit = data => {
+
+ 
+	console.log(data.email)
+
+	axios
+	.post(`${REACT_API_URL}/users/make-admin`, data,{
+		headers: {
+					"x-access-token": localStorage.getItem("token")
+			 	}
+		})
+
+		
+	.then((res) => {
+		console.log(res.data);
+		if (res.data.status === "success") {
+			swal({
+				title: "Good job!",
+				text: "Registration successful!",
+				icon: "success",
+			});
+			
+		}
+		if (res.data.status === "error") {
+			console.log(res.data.errors);
+		}
+	})
+	.catch((err) => console.log(err))
 	
-	console.log(data)
-	
-	);
+
+
+
+
+// 	fetch(`${REACT_API_URL}/users/make-admin`,{
+//     method:'POST',
+//     headers: {
+// 		"x-access-token": localStorage.getItem("token")
+// 	},
+//     body:JSON.stringify(data.email)
+// })
+// 	.then(res=>res.json())
+// 	.then(data=>{console.log(data)})
+
+
+
+
+
+}
+
+
+
+
 	return (
 	
 		<Grid container spacing={1} className='admin__item' maxWidth="md">

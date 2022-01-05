@@ -10,7 +10,7 @@ import LineStyleIcon from "@mui/icons-material/LineStyle";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import LogoutIcon from "@mui/icons-material/Logout";
 import "./Dashbords.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import { useSelector, useDispatch } from "react-redux";
@@ -22,7 +22,7 @@ const drawerWidth = 240;
 const Dashbords = (props) => {
 	const { window } = props;
 	const [mobileOpen, setMobileOpen] = React.useState(false);
-
+	let navigate = useNavigate();
 	const dispatch = useDispatch();
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);
@@ -39,6 +39,15 @@ const Dashbords = (props) => {
 		dispatch(userState(token));
 	}, [dispatch]);
 
+	const handleLogout = () => {
+		const token = localStorage.getItem("token");
+		if (token) {
+			localStorage.removeItem("token");
+			dispatch(userState(null));
+			
+			navigate('/')
+		}
+	};
 	const drawer = (
 		<div>
 			{/* <Toolbar /> */}
@@ -53,12 +62,12 @@ const Dashbords = (props) => {
 								</li>
 							</Link>
 							<Link
-								to="/dashboard/publish-news/"
+								to=""
 								className="link"
 							>
 								<li className="sidebarListItem ">
 									<LineStyleIcon className="sidebarIcon" />
-									Publish News
+									Dashboard
 								</li>
 							</Link>
 							{currentUser.admin && (
@@ -135,11 +144,11 @@ const Dashbords = (props) => {
 					<div className="topbar">
 						<div className="topbarWrapper">
 							<div className="topLeft">
-								<span className="logo__des">Bengal</span>
+								<span className="logo__des">Dev News</span>
 							</div>
 							<div className="topRight">
 								<div className="topbarIconContainer">
-									<LogoutIcon />
+									<LogoutIcon onClick={handleLogout}/>
 								</div>
 							</div>
 						</div>

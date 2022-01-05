@@ -30,9 +30,9 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
 
-          <Route path="dashboard" element={<Dashbords />}>
+          <Route path="/dashboard" element={<Dashbords />}>
+          <Route path="/dashboard" element={<PublishNews />} />
             <Route path="manage-news" element={<ManageNewses />} />
-            <Route path="publish-news" element={<PublishNews />} />
             <Route path="make-admin" element={<MakeAdmin />} />
             <Route
               path="panding-news"
