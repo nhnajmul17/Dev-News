@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import { Button, TextField } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./Login.css";
 import axios from "axios";
@@ -9,7 +9,10 @@ import { REACT_API_URL } from "../../Utils";
 
 const Login = () => {
 	const [loading, setLoading] = useState(false);
+
 	const { register, handleSubmit } = useForm();
+
+	const navigate = useNavigate();
 
 	const onSubmit = (data) => {
 		setLoading(true);
@@ -19,6 +22,7 @@ const Login = () => {
 				console.log(res.data);
 				if (res.data.status === "success") {
 					localStorage.setItem("token", res.data.data.token);
+					navigate("/");
 				}
 				if (res.data.status === "error") {
 					console.log(res.data.errors);
