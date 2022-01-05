@@ -6,6 +6,7 @@ const {
 	getAllNews,
 	getNewsById,
 	getNewsByIdAndDelete,
+	updateNewsPublishStatusById,
 } = require("../controller/newsConroller.js");
 
 // @desc POST news to db
@@ -32,6 +33,6 @@ router.delete("/:id", getNewsByIdAndDelete);
 // @desc DELETE single news by id from db
 // @route GET /api/news/:id
 // @access Public
-router.post("/:id", getNewsByIdAndDelete);
+router.put("/:id", updateNewsPublishStatusById);
 
 module.exports = router;
