@@ -7,16 +7,20 @@ import Grid from '@mui/material/Grid';
 import { Button, TextField } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import './Signup.css'
+import './Signup.css';
+import Header from '../Shared/Header/Header';
+import Footer from '../Shared/Footer/Footer';
 const Signup = () => {
 
   const { register, handleSubmit } = useForm();
   const onSubmit = data => console.log(data);
     return (
 
+<>
 
-      
-        <Grid container spacing={1} className='Regi__item' maxWidth="md">
+<Header></Header>
+
+<Grid container spacing={1} className='Regi__item' maxWidth="md">
       <Grid item xs={12} md={8}>
         <img className='Regi__img' src="https://previews.123rf.com/images/tudmeak/tudmeak1804/tudmeak180400054/100329950-news-update-online-illustration-vector-newspaper-website-concept-announcements-internet-social-netwo.jpg" alt="" />
       </Grid>
@@ -71,6 +75,11 @@ const Signup = () => {
       </Grid>
       
     </Grid>
+
+    <Footer></Footer>
+</>
+      
+        
     
       
     );
