@@ -19,7 +19,7 @@ const PendingNewses = () => {
 
 	const handleApproved = (id) => {
 		axios
-			.post(`${REACT_API_URL}/news/${id}`, {
+			.put(`${REACT_API_URL}/news/${id}`, {
 				headers: { "x-access-token": localStorage.getItem("token") },
 			})
 			.then((res) => {
@@ -36,9 +36,8 @@ const PendingNewses = () => {
 	}
 
 
-
 	/* const handleApproved = (id) => {
-		dispatch(deleteNews(id))
+		dispatch( NewsApproved(id))
 	} */
 	return (
 		<div>
