@@ -18,7 +18,7 @@ const Login = () => {
 			.then((res) => {
 				console.log(res.data);
 				if (res.data.status === "success") {
-					localStorage.setItem("token", res.data.token);
+					localStorage.setItem("token", res.data.data.token);
 				}
 				if (res.data.status === "error") {
 					console.log(res.data.errors);

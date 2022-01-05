@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import { Button, TextField } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./Signup.css";
 import axios from "axios";
@@ -11,6 +11,8 @@ const Signup = () => {
 	const [loading, setLoading] = useState(false);
 	const { register, handleSubmit } = useForm();
 
+	const navigate = useNavigate();
+
 	const onSubmit = (data) => {
 		setLoading(true);
 		axios
@@ -19,8 +21,7 @@ const Signup = () => {
 				console.log(res.data);
 				if (res.data.status === "success") {
 					window.alert("user created");
-					// TODO:
-					// reidrect to login page
+					navigate("/login");
 				}
 				if (res.data.status === "error") {
 					console.log(res.data.errors);
