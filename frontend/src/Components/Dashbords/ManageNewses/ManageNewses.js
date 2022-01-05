@@ -1,6 +1,6 @@
 import { Box, Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
+// import { Table } from "react-bootstrap";
 // import { useSelector } from "react-redux";
 // import { useDispatch } from "react-redux";
 // import { deleteNews, fetchAllnews } from "../../../Redux/NewsSlice/NewsSlice";
