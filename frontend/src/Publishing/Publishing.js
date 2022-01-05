@@ -6,11 +6,10 @@ const Publishing = () => {
         <div className='publishing-caption'>
 
             <div className="item">
-            <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-      <Button variant="outline-danger">Danger</Button>
+            <h3>Change your Programming thought</h3>
+                <p>"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."</p>
+                <p>~ Martin Fowler</p>
             </div>
-            
         </div>
     );
 };
