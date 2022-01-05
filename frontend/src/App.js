@@ -11,10 +11,10 @@ import Error from "./Components/Shared/Error/Error";
 import Signup from "./Components/SignUp/Signup";
 
 import ManageNewses from "./Components/Dashbords/ManageNewses/ManageNewses";
-import PublicNews from "./Components/Dashbords/PublishNews/PublicNews";
 import PendingNewses from "./Components/Dashbords/PendingNewses/PendingNewses";
 import UserAnalytics from "./Components/Dashbords/UserAnalytics/UserAnalytics";
 import MakeAdmin from "./Components/Dashbords/MakeAdmin/MakeAdmin";
+import PublishNews from "./Components/Dashbords/PublishNews/PublishNews";
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
 
           <Route path="dashboard" element={<Dashbords />}>
             <Route path="manage-news" element={<ManageNewses />} />
-            <Route path="publish-news" element={<PublicNews />} />
+            <Route path="publish-news" element={<PublishNews />} />
             <Route path="make-admin" element={<MakeAdmin />} />
             <Route
               path="panding-news"

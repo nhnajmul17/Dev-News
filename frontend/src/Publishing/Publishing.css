@@ -2,11 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image:url('https://www.councilshs2information.org/wp-content/uploads/2021/09/IT-Support-Provider.jpg') ;
+    background-image:url('../Images/quotes_img.jpg') ;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-     background-attachment: fixed; 
+    background-attachment: fixed; 
     text-align: center;
     padding: 20px 0;
     height: 70vh;

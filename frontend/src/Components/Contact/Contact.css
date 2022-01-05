@@ -31,6 +31,7 @@
     box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 2px;
     border-radius: 2px;
     padding: 4px;
+    width: 300px;
 }
 .contact__form form> textarea:focus{
     box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 4px;
