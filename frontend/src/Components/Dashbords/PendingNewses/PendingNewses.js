@@ -20,24 +20,6 @@ const PendingNewses = () => {
 			})
 	}, [])
 
-	/* const handleApproved = (id) => {
-		axios
-			.put(`${REACT_API_URL}/news/${id}`, {}, {
-				headers: { "x-access-token": localStorage.getItem("token") },
-			})
-			.then((res) => {
-				if (res.data.status === 'success') {
-					alert('News Approved')
-					window.location.reload()
-				}
-				setLoading(false);
-			})
-			.catch((err) => {
-				console.log(err);
-				setLoading(false);
-			});
-	}
- */
 
 	const handleApproved = (id) => {
 		dispatch(NewsApproved(id))
