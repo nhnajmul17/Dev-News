@@ -11,44 +11,44 @@ import Error from "./Components/Shared/Error/Error";
 import Signup from "./Components/SignUp/Signup";
 
 import ManageNewses from "./Components/Dashbords/ManageNewses/ManageNewses";
-import PublicNews from "./Components/Dashbords/PublishNews/PublicNews";
 import PendingNewses from "./Components/Dashbords/PendingNewses/PendingNewses";
 import UserAnalytics from "./Components/Dashbords/UserAnalytics/UserAnalytics";
 import MakeAdmin from "./Components/Dashbords/MakeAdmin/MakeAdmin";
+import PublishNews from "./Components/Dashbords/PublishNews/PublishNews";
 
 function App() {
-	return (
-		<div className="App">
-			<BrowserRouter>
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="home" element={<Home />} />
-					<Route path="home/:newsId" element={<DetailsNews />} />
-					<Route path="about" element={<About />} />
-					<Route path="contact" element={<Contact />} />
-					<Route path="allnews" element={<Allnews />} />
-					<Route path="login" element={<Login />} />
-					<Route path="signup" element={<Signup />} />
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="home" element={<Home />} />
+          <Route path="home/:newsId" element={<DetailsNews />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="allnews" element={<Allnews />} />
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
 
-					<Route path="dashboard" element={<Dashbords />}>
-						<Route path="manage-news" element={<ManageNewses />} />
-						<Route path="publish-news" element={<PublicNews />} />
-						<Route path="make-admin" element={<MakeAdmin />} />
-						<Route
-							path="panding-news"
-							element={<PendingNewses />}
-						/>
-						<Route
-							path="user-analytics"
-							element={<UserAnalytics />}
-						/>
-					</Route>
+          <Route path="dashboard" element={<Dashbords />}>
+            <Route path="manage-news" element={<ManageNewses />} />
+            <Route path="publish-news" element={<PublishNews />} />
+            <Route path="make-admin" element={<MakeAdmin />} />
+            <Route
+              path="panding-news"
+              element={<PendingNewses />}
+            />
+            <Route
+              path="user-analytics"
+              element={<UserAnalytics />}
+            />
+          </Route>
 
-					<Route path="*" element={<Error />} />
-				</Routes>
-			</BrowserRouter>
-		</div>
-	);
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;

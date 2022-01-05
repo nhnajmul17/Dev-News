@@ -12,6 +12,10 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import "./Dashbords.css";
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
+import HomeIcon from "@mui/icons-material/Home";
+import { useSelector, useDispatch } from "react-redux";
+import { userState } from "../../Redux/NewsSlice/NewsSlice";
+import jwt_decode from "jwt-decode";
 
 const drawerWidth = 240;
 
@@ -19,9 +23,21 @@ const Dashbords = (props) => {
 	const { window } = props;
 	const [mobileOpen, setMobileOpen] = React.useState(false);
 
+	const dispatch = useDispatch();
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);
 	};
+
+	const currentUser = useSelector((state) => state.news.currentUser);
+
+	React.useEffect(() => {
+		const token = localStorage.getItem("token")
+			? jwt_decode(localStorage.getItem("token"))
+			: [];
+
+		console.log("token", token);
+		dispatch(userState(token));
+	}, [dispatch]);
 
 	const drawer = (
 		<div>
@@ -30,10 +46,10 @@ const Dashbords = (props) => {
 				<div className="sidebarWrapper">
 					<div className="sidebarMenu">
 						<ul className="sidebarList">
-							<Link to="/dashboard/manage-news/" className="link">
+							<Link to="/" className="link">
 								<li className="sidebarListItem">
-									<LineStyleIcon className="sidebarIcon" />
-									Manage News
+									<HomeIcon color="secondary" />
+									Go Home
 								</li>
 							</Link>
 							<Link
@@ -45,31 +61,47 @@ const Dashbords = (props) => {
 									Publish News
 								</li>
 							</Link>
+							{currentUser.admin && (
+								<>
+									<Link
+										to="/dashboard/manage-news/"
+										className="link"
+									>
+										<li className="sidebarListItem">
+											<LineStyleIcon className="sidebarIcon" />
+											Manage News
+										</li>
+									</Link>
 
-							<Link to="/dashboard/make-admin/" className="link">
-								<li className="sidebarListItem">
-									<TrendingUpIcon className="sidebarIcon" />
-									Make Admin
-								</li>
-							</Link>
-							<Link
-								to="/dashboard/panding-news/"
-								className="link"
-							>
-								<li className="sidebarListItem">
-									<TrendingUpIcon className="sidebarIcon" />
-									Pending News
-								</li>
-							</Link>
-							<Link
-								to="/dashboard/user-analytics/"
-								className="link"
-							>
-								<li className="sidebarListItem">
-									<TrendingUpIcon className="sidebarIcon" />
-									User Analytics
-								</li>
-							</Link>
+									<Link
+										to="/dashboard/make-admin/"
+										className="link"
+									>
+										<li className="sidebarListItem">
+											<TrendingUpIcon className="sidebarIcon" />
+											Make Admin
+										</li>
+									</Link>
+									<Link
+										to="/dashboard/panding-news/"
+										className="link"
+									>
+										<li className="sidebarListItem">
+											<TrendingUpIcon className="sidebarIcon" />
+											Pending News
+										</li>
+									</Link>
+									<Link
+										to="/dashboard/user-analytics/"
+										className="link"
+									>
+										<li className="sidebarListItem">
+											<TrendingUpIcon className="sidebarIcon" />
+											User Analytics
+										</li>
+									</Link>
+								</>
+							)}
 						</ul>
 					</div>
 				</div>
