@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import './OneNews.css';
 
 const OneNews = (props) => {
-    const { id, headLine, photoUrl, Description } = props.news;
+    const { _id, headLine, photoUrl, description } = props.news;
     const navigate = useNavigate();
     const newsDetails = () => {
-        navigate(`/home/${id}`)
+        navigate(`/home/${_id}`)
     }
     return (
         <div className='single__top__news'>
@@ -14,8 +14,8 @@ const OneNews = (props) => {
                 <img src={photoUrl} alt="news banner" />
             </div>
             <div className='top__news__text'>
-                <h5>{headLine.slice(0,30)}</h5>
-                <p>{ Description.slice(0,50)} <span onClick={newsDetails} >see more</span>...</p>
+                <h5>{headLine.slice(0, 30)}</h5>
+                <p>{description.slice(0, 50)} <span onClick={newsDetails} >see more</span>...</p>
             </div>
         </div>
     );

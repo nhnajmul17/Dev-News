@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { REACT_API_URL } from '../../../Utils';
@@ -5,6 +6,8 @@ import { REACT_API_URL } from '../../../Utils';
 const PendingNewses = () => {
 
 	const [news, setNews] = useState([])
+	const [loading, setLoading] = useState(false);
+
 
 	useEffect(() => {
 		fetch(`${REACT_API_URL}/news?publish=false`)
@@ -14,22 +17,22 @@ const PendingNewses = () => {
 			})
 	}, [])
 
-	const handleUpdate = (id) => {
-		const url = `${REACT_API_URL}/api/news/${id}`
-		fetch(url, {
-			method: 'PUT',
-			headers: {
-				'content-type': 'application/json'
-			},
-			body: JSON.stringify(news)
-		})
-			.then(res => res.json())
-			.then(data => {
-				if (data.modifiedCount > 0) {
-					alert('Updated Successfully')
-					window.location.reload();
-				}
+	const handleApproved = (id) => {
+		axios
+			.post(`${REACT_API_URL}/news/${id}`, {
+				headers: { "x-access-token": localStorage.getItem("token") },
 			})
+			.then((res) => {
+				if (res.data.status === 'success') {
+					alert('News Approved')
+					window.location.reload()
+				}
+				setLoading(false);
+			})
+			.catch((err) => {
+				console.log(err);
+				setLoading(false);
+			});
 	}
 	return (
 		<div>
@@ -55,7 +58,7 @@ const PendingNewses = () => {
 							<td>{pd?.category}</td>
 							<td>{pd?.publishedDate}</td>
 							<button
-								onClick={() => handleUpdate(pd._id)}
+								onClick={() => handleApproved(pd._id)}
 								className="btn bg-warning m-2"
 							>
 								Approved

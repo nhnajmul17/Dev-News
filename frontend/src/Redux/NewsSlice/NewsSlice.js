@@ -1,35 +1,37 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+import { REACT_API_URL } from "../../Utils";
 
 export const fetchevents = createAsyncThunk("news/events", async () => {
-    const response = await fetch("./events.json").then((res) => res.json());
-    return response;
+    const response = await fetch(`${REACT_API_URL}/events`).then((res) => res.json());
+    return response.data;
 });
 export const fetchTopnews = createAsyncThunk("news/newsdata", async () => {
-    const response = await fetch("./NewsData.json")
+    const response = await fetch(`${REACT_API_URL}/news`)
         .then((res) => res.json())
-        .then((data) => data.slice(0, 6));
+        .then((data) => data.data.slice(0, 6));
     return response;
 });
 export const fetchAllnews = createAsyncThunk("news/AllNewsdata", async () => {
-    const response = await fetch("./NewsData.json").then((res) => res.json());
-    return response;
+    const response = await fetch(`${REACT_API_URL}/news`).then((res) => res.json());
+    return response.data;
 });
 
 
 export const deleteNews = createAsyncThunk(
     'news/AllNewsdata',
     async (id) => {
-        const response = await fetch(`https://localhost5000/deleteNews/${id}`, {
-            method: "DELETE",
-            headers: { "content-type": "application/json" },
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.deletedCount) {
-                    alert(' News Deleted')
+        const response = await axios
+            .delete(`${REACT_API_URL}/news/${id}`, {
+                headers: { "x-access-token": localStorage.getItem("token") },
+            })
+            .then((res) => {
+                if (res.data.status === 'success') {
+                    alert('News Deleted')
                     window.location.reload()
-                } else {
                 }
+            })
+            .catch((err) => {
             });
         return response
     }

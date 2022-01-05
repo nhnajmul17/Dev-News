@@ -57,23 +57,14 @@ const Allnews = () => {
                 <div className='all__Newses'>
                     {
                         news.map(news => <SingleNews
-                            key={news.id}
+                            key={news._id}
                             news={news}
 
                         ></SingleNews>)
                     }
                 </div>
 
-                {/*  <div className='ms-5 mt-5'>
-                <Row xs={1} md={3} className="g-4">
-                    {
-                        news.map(item => <SingleNews
-                            key={item.id}
-                            item={item}
-                        ></SingleNews>)
-                    }
-                </Row>
-            </div> */}
+
             </div>
             <Footer></Footer>
         </>

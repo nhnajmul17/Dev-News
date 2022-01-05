@@ -19,6 +19,7 @@ const TopNews = () => {
     }, [dispatch])
 
     const topNews = useSelector(state => state.news.topNews)
+    console.log(topNews);
 
     return (
         <div className='topNews__Section'>

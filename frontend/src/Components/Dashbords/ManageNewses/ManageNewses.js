@@ -1,41 +1,12 @@
 import { Box, Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import { REACT_API_URL } from "../../../Utils";
-// import { Table } from "react-bootstrap";
-// import { useSelector } from "react-redux";
-// import { useDispatch } from "react-redux";
-// import { deleteNews, fetchAllnews } from "../../../Redux/NewsSlice/NewsSlice";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { deleteNews, fetchAllnews } from "../../../Redux/NewsSlice/NewsSlice";
 
 const ManageNewses = () => {
 
-
-	const [news, setNews] = useState([])
-
-	useEffect(() => {
-		fetch('https://newsportal-serverapi.herokuapp.com/api/news')
-			.then(res => res.json())
-			.then(data => {
-				setNews(data.data);
-			})
-	}, [])
-
-	const handleDelete = (id) => {
-		fetch(`${REACT_API_URL}/news/${id}`, {
-			method: "DELETE",
-			headers: { "content-type": "application/json" },
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				if (data.deletedCount) {
-					alert('News Deleted')
-					window.location.reload()
-				} else {
-				}
-			});
-	}
-
-
-	/* const dispatch = useDispatch()
+	const dispatch = useDispatch()
 	useEffect(() => {
 		dispatch(fetchAllnews())
 	}
@@ -45,7 +16,7 @@ const ManageNewses = () => {
 
 	const handleDelete = (id) => {
 		dispatch(deleteNews(id))
-	} */
+	}
 
 
 
@@ -53,38 +24,6 @@ const ManageNewses = () => {
 	return (
 		<div>
 			<h1>All News {news?.length}</h1>
-
-			{/* <Table striped bordered hover>
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>Headline</th>
-						<th>Author</th>
-						<th>Category</th>
-						<th>Published</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-				{news?.map((pd, index) => (
-					<tbody>
-						<tr>
-							<td>{index + 1}</td>
-							<td>{pd?.headLine}</td>
-							<td>{pd?.Author}</td>
-							<td>{pd?.category}</td>
-							<td>{pd?.PublishedDate}</td>
-							<button
-								onClick={() => handleDelete(pd._id)}
-								className="btn bg-danger m-2"
-							>
-								Delete
-							</button>
-
-						</tr>
-					</tbody>
-				))}
-			</Table> */}
-
 			<Box sx={{ m: 3 }}>
 				<Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
 					{
