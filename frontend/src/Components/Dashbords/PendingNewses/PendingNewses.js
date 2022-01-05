@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
+import { REACT_API_URL } from '../../../Utils';
 
 const PendingNewses = () => {
 
 	const [news, setNews] = useState([])
 
 	useEffect(() => {
-		fetch('/api/news?publish=false')
+		fetch(`${REACT_API_URL}/news?publish=false`)
 			.then(res => res.json())
 			.then(data => {
-				setNews(data);
+				setNews(data.data);
 			})
 	}, [])
 

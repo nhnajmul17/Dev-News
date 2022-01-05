@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
-import { Button, TextField } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { Button, CircularProgress, TextField } from "@mui/material";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "./Signup.css";
 import axios from "axios";
 import { REACT_API_URL } from "../../Utils";
+import swal from "sweetalert";
+import Header from '../Shared/Header/Header';
+import Footer from '../Shared/Footer/Footer';
 
 const Signup = () => {
 	const [loading, setLoading] = useState(false);
 	const { register, handleSubmit } = useForm();
+
+	const navigate = useNavigate();
 
 	const onSubmit = (data) => {
 		setLoading(true);
@@ -18,9 +23,12 @@ const Signup = () => {
 			.then((res) => {
 				console.log(res.data);
 				if (res.data.status === "success") {
-					window.alert("user created");
-					// TODO:
-					// reidrect to login page
+					swal({
+						title: "Good job!",
+						text: "Registration successful!",
+						icon: "success",
+					});
+					navigate("/login");
 				}
 				if (res.data.status === "error") {
 					console.log(res.data.errors);
@@ -33,7 +41,11 @@ const Signup = () => {
 	};
 
 	return (
-		<Grid container spacing={1} className="Regi__item" maxWidth="md">
+
+<>
+<Header></Header>
+
+<Grid container spacing={1} className="Regi__item" maxWidth="md">
 			<Grid item xs={12} md={8}>
 				<img
 					className="Regi__img"
@@ -78,17 +90,21 @@ const Signup = () => {
 						variant="standard"
 						type="password"
 					/>
-					<Button
-						type="submit"
-						style={{
-							backgroundColor: "#6a2b36",
-							marginTop: "20px",
-							marginLeft: "5px",
-						}}
-						variant="contained"
-					>
-						Register
-					</Button>
+					{loading ? (
+						<CircularProgress />
+					) : (
+						<Button
+							type="submit"
+							style={{
+								backgroundColor: "#6a2b36",
+								marginTop: "20px",
+								marginLeft: "5px",
+							}}
+							variant="contained"
+						>
+							Register
+						</Button>
+					)}
 					<br />
 					<br />
 					<NavLink style={{ textDecoration: "none" }} to="/Login">
@@ -103,6 +119,11 @@ const Signup = () => {
 				</form>
 			</Grid>
 		</Grid>
+
+<Footer></Footer>
+</>
+
+		
 	);
 };
 
