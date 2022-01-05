@@ -7,6 +7,8 @@ import "./Signup.css";
 import axios from "axios";
 import { REACT_API_URL } from "../../Utils";
 import swal from "sweetalert";
+import Header from '../Shared/Header/Header';
+import Footer from '../Shared/Footer/Footer';
 
 const Signup = () => {
 	const [loading, setLoading] = useState(false);
@@ -39,7 +41,11 @@ const Signup = () => {
 	};
 
 	return (
-		<Grid container spacing={1} className="Regi__item" maxWidth="md">
+
+<>
+<Header></Header>
+
+<Grid container spacing={1} className="Regi__item" maxWidth="md">
 			<Grid item xs={12} md={8}>
 				<img
 					className="Regi__img"
@@ -113,6 +119,11 @@ const Signup = () => {
 				</form>
 			</Grid>
 		</Grid>
+
+<Footer></Footer>
+</>
+
+		
 	);
 };
 

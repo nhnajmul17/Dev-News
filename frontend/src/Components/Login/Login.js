@@ -7,7 +7,8 @@ import "./Login.css";
 import axios from "axios";
 import { REACT_API_URL } from "../../Utils";
 import swal from "sweetalert";
-
+import Header from '../Shared/Header/Header';
+import Footer from '../Shared/Footer/Footer';
 const Login = () => {
 	const [loading, setLoading] = useState(false);
 
@@ -41,7 +42,11 @@ const Login = () => {
 	};
 
 	return (
-		<Grid container spacing={1} className="Regi__item" maxWidth="md">
+
+<>
+<Header></Header>
+
+<Grid container spacing={1} className="Regi__item" maxWidth="md">
 			<Grid item xs={12} md={8}>
 				<img
 					className="Regi__img"
@@ -98,6 +103,13 @@ const Login = () => {
 				</form>
 			</Grid>
 		</Grid>
+<Footer></Footer>
+
+</>
+
+
+
+		
 	);
 };
 
