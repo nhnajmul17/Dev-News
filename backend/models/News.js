@@ -25,6 +25,10 @@ const newsSchema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	is_published: {
+		type: Boolean,
+		default: false,
+	},
 });
 
 const News = mongoose.model("news", newsSchema);
