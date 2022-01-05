@@ -26,6 +26,26 @@ export const fetchAllnews = createAsyncThunk(
     }
 )
 
+
+export const deleteNews = createAsyncThunk(
+    'news/AllNewsdata',
+    async (id) => {
+        const response = await fetch(`https://localhost5000/deleteNews/${id}`, {
+            method: "DELETE",
+            headers: { "content-type": "application/json" },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.deletedCount) {
+                    alert(' News Deleted')
+                    window.location.reload()
+                } else {
+                }
+            });
+        return response
+    }
+)
+
 const initialState = {
     events: [],
     topNews: [],
@@ -52,9 +72,10 @@ export const newsSlice = createSlice({
             state.topNews = (action.payload)
         })
         builder.addCase(fetchAllnews.fulfilled, (state, action) => {
-            state.allNews = (action.payload)
             state.allNewsItem = (action.payload)
+            state.allNews = (action.payload)
         })
+
 
     },
 })
