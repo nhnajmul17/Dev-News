@@ -1,12 +1,15 @@
-import axios from 'axios';
+// import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { NewsApproved } from '../../../Redux/NewsSlice/NewsSlice';
 import { REACT_API_URL } from '../../../Utils';
 
 const PendingNewses = () => {
 
 	const [news, setNews] = useState([])
-	const [loading, setLoading] = useState(false);
+	// const [loading, setLoading] = useState(false);
+	const dispatch = useDispatch()
 
 
 	useEffect(() => {
@@ -17,9 +20,9 @@ const PendingNewses = () => {
 			})
 	}, [])
 
-	const handleApproved = (id) => {
+	/* const handleApproved = (id) => {
 		axios
-			.put(`${REACT_API_URL}/news/${id}`, {
+			.put(`${REACT_API_URL}/news/${id}`, {}, {
 				headers: { "x-access-token": localStorage.getItem("token") },
 			})
 			.then((res) => {
@@ -34,11 +37,11 @@ const PendingNewses = () => {
 				setLoading(false);
 			});
 	}
+ */
 
-
-	/* const handleApproved = (id) => {
-		dispatch( NewsApproved(id))
-	} */
+	const handleApproved = (id) => {
+		dispatch(NewsApproved(id))
+	}
 	return (
 		<div>
 			<h1>All News {news?.length}</h1>

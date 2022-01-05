@@ -41,7 +41,7 @@ export const NewsApproved = createAsyncThunk(
     'news/AllNewsdata',
     async (id) => {
         const response = await axios
-            .post(`${REACT_API_URL}/news/${id}`, {
+            .put(`${REACT_API_URL}/news/${id}`, {}, {
                 headers: { "x-access-token": localStorage.getItem("token") },
             })
             .then((res) => {
