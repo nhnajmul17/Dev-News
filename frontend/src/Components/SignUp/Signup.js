@@ -7,8 +7,8 @@ import "./Signup.css";
 import axios from "axios";
 import { REACT_API_URL } from "../../Utils";
 import swal from "sweetalert";
-import Header from '../Shared/Header/Header';
-import Footer from '../Shared/Footer/Footer';
+import Header from "../Shared/Header/Header";
+import Footer from "../Shared/Footer/Footer";
 
 const Signup = () => {
 	const [loading, setLoading] = useState(false);
@@ -41,89 +41,86 @@ const Signup = () => {
 	};
 
 	return (
+		<>
+			<Header></Header>
 
-<>
-<Header></Header>
-
-<Grid container spacing={1} className="Regi__item" maxWidth="md">
-			<Grid item xs={12} md={8}>
-				<img
-					className="Regi__img"
-					src="https://previews.123rf.com/images/tudmeak/tudmeak1804/tudmeak180400054/100329950-news-update-online-illustration-vector-newspaper-website-concept-announcements-internet-social-netwo.jpg"
-					alt=""
-				/>
+			<Grid container spacing={1} className="Regi__item" maxWidth="md">
+				<Grid item xs={12} md={8}>
+					<img
+						className="Regi__img"
+						src="https://previews.123rf.com/images/tudmeak/tudmeak1804/tudmeak180400054/100329950-news-update-online-illustration-vector-newspaper-website-concept-announcements-internet-social-netwo.jpg"
+						alt=""
+					/>
+				</Grid>
+				<Grid item xs={12} md={4}>
+					<h2>Create an account</h2>
+					<form onSubmit={handleSubmit(onSubmit)}>
+						<TextField
+							sx={{ width: "90%", mx: 1 }}
+							required
+							id="standard-basic"
+							label="Your Full name"
+							{...register("fullName")}
+							variant="standard"
+						/>
+						<TextField
+							sx={{ width: "90%", mx: 1 }}
+							required
+							id="standard-basic"
+							label="Your Email"
+							{...register("email")}
+							variant="standard"
+						/>
+						<TextField
+							sx={{ width: "90%", mx: 1 }}
+							required
+							id="standard-basic"
+							label="Password"
+							{...register("password")}
+							variant="standard"
+							type="password"
+						/>
+						<TextField
+							sx={{ width: "90%", mx: 1 }}
+							required
+							id="standard-basic"
+							label="Confrim Password"
+							{...register("confrimpass")}
+							variant="standard"
+							type="password"
+						/>
+						{loading ? (
+							<CircularProgress />
+						) : (
+							<Button
+								type="submit"
+								style={{
+									backgroundColor: "#6a2b36",
+									marginTop: "20px",
+									marginLeft: "5px",
+								}}
+								variant="contained"
+							>
+								Register
+							</Button>
+						)}
+						<br />
+						<br />
+						<NavLink style={{ textDecoration: "none" }} to="/Login">
+							<Button
+								variant="text"
+								style={{ textAlign: "left", fontSize: "12px" }}
+							>
+								Already Registered? Please Login here.
+							</Button>
+						</NavLink>{" "}
+						<br />
+					</form>
+				</Grid>
 			</Grid>
-			<Grid item xs={12} md={4}>
-				<h2>Create an account</h2>
-				<form onSubmit={handleSubmit(onSubmit)}>
-					<TextField
-						sx={{ width: "90%", mx: 1 }}
-						required
-						id="standard-basic"
-						label="Your Full name"
-						{...register("fullName")}
-						variant="standard"
-					/>
-					<TextField
-						sx={{ width: "90%", mx: 1 }}
-						required
-						id="standard-basic"
-						label="Your Email"
-						{...register("email")}
-						variant="standard"
-					/>
-					<TextField
-						sx={{ width: "90%", mx: 1 }}
-						required
-						id="standard-basic"
-						label="Password"
-						{...register("password")}
-						variant="standard"
-						type="password"
-					/>
-					<TextField
-						sx={{ width: "90%", mx: 1 }}
-						required
-						id="standard-basic"
-						label="Confrim Password"
-						{...register("confrimpass")}
-						variant="standard"
-						type="password"
-					/>
-					{loading ? (
-						<CircularProgress />
-					) : (
-						<Button
-							type="submit"
-							style={{
-								backgroundColor: "#6a2b36",
-								marginTop: "20px",
-								marginLeft: "5px",
-							}}
-							variant="contained"
-						>
-							Register
-						</Button>
-					)}
-					<br />
-					<br />
-					<NavLink style={{ textDecoration: "none" }} to="/Login">
-						<Button
-							variant="text"
-							style={{ textAlign: "left", fontSize: "12px" }}
-						>
-							Already Registered? Please Login here.
-						</Button>
-					</NavLink>{" "}
-					<br />
-				</form>
-			</Grid>
-		</Grid>
 
-<Footer></Footer>
-</>
-
-		
+			<Footer></Footer>
+		</>
 	);
 };
 

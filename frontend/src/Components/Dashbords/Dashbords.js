@@ -44,8 +44,7 @@ const Dashbords = (props) => {
 		if (token) {
 			localStorage.removeItem("token");
 			dispatch(userState(null));
-			
-			navigate('/')
+			navigate("/");
 		}
 	};
 	const drawer = (
@@ -61,10 +60,7 @@ const Dashbords = (props) => {
 									Go Home
 								</li>
 							</Link>
-							<Link
-								to=""
-								className="link"
-							>
+							<Link to="" className="link">
 								<li className="sidebarListItem ">
 									<LineStyleIcon className="sidebarIcon" />
 									Dashboard
@@ -148,7 +144,7 @@ const Dashbords = (props) => {
 							</div>
 							<div className="topRight">
 								<div className="topbarIconContainer">
-									<LogoutIcon onClick={handleLogout}/>
+									<LogoutIcon onClick={handleLogout} />
 								</div>
 							</div>
 						</div>
